@@ -1,4 +1,3 @@
-
 #Archivos en Python
 #2. Escribir datos en un archivo de texto
 
