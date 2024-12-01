@@ -3,7 +3,7 @@ class Board:
         self.n=n
         self.num_bombas=num_bombas
 
-        self.board = sel.crear_board()
+        self.board = self.crear_board()
 
 
     # Separación -----
