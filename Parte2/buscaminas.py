@@ -26,13 +26,27 @@ class Board:
             bombas_colocadas+=1
 
         return board
-
-
-
-
-
-    # Separación -----
     
+    # Separación -----
+
+    def asignar_valores_a_la_matriz(self):
+        for f in range(self.n):
+            for c in range(self.n):
+                if self.board[f][c] == "*":
+                    continue
+                self.board[f][c] = self.asignar_numero_de_bombas_cercanas(f,c)
+    
+    
+    def asignar_numero_de_bombas_cercanas(self, fila, columna):
+        numero_de_bombas_cercanas = 0
+        for f in range(max(0,fila-1),min(self.n,(fila+1)+1)):
+            for c in range(max(0,columna-1),min(self.n,(columna+1)+1)):
+                if f == fila and c== columna:
+                    continue
+                elif self.boar[f][c] == "*":
+                    numero_de_bombas_cercanas += 1
+
+        return numero_de_bombas_cercanas
 
 
 def play(n=10, num_bombas=10):
