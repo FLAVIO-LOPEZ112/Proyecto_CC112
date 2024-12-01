@@ -1,4 +1,5 @@
-#Implementa una función que cree una matriz, permita llenarla con datos y luego imprima sus elementos.
+# Referencias y asignación dinámica en Python
+# 2. Implementa una función que cree una matriz, permita llenarla con datos y luego imprima sus elementos.
 
 def matriz(filas, columnas,m):
 

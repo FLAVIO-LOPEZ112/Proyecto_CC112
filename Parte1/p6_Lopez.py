@@ -1,4 +1,4 @@
-#Clases en Python 
+# Clases en Python 
 # 1. Definir una clase Persona con atributos nombre y edad, y un método para mostrar estos datos. 
 
 class Persona: 
