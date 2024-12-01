@@ -5,5 +5,10 @@ class Board:
 
         self.board = sel.crear_board()
 
+
+    # Separación -----
+    
+
+
 def play(n=10, num_bombas=10):
     pass
