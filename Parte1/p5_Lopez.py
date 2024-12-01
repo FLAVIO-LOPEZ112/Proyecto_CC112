@@ -7,7 +7,7 @@ with open("Parte1\datos1.txt", "w") as archivo:
     print("se agregaron los datos correctamente")
 
 """
-archivo = open("D:Parte1\datos1.txt", "w")
+archivo = open("Parte1\datos1.txt", "w")
 archivo.write("Lopez\nOcampo\nFlavio\nRaul")
 print("se agregaron los datos correctamente")
 archivo.close()

@@ -1,4 +1,4 @@
-#Funciones en Python
+# Funciones en Python
 # 2. Implementar una función recursiva que calcule el n-ésimo termino de la sucesión de Fibonacci.
 def Fibonacci(n):
   if n<0:
