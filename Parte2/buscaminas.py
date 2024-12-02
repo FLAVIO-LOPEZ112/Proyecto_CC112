@@ -69,7 +69,7 @@ class Board:
         tablero_str = "\n".join([" ".join(row) for row in tablero_visible])
         return tablero_str
         
-def play(n=10, num_bombas=2):
+def play(n=10, num_bombas=10):
     board= Board(n, num_bombas)
 
     safe= True
