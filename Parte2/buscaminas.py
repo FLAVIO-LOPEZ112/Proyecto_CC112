@@ -76,7 +76,7 @@ def play(n, num_bombas):
         print(board)
         entrada_usuario=re.split(',(\\s)*',input("Dónde te gustaría cavar? (fila,columna): "))
         fila, columna= int(entrada_usuario[0]), int(entrada_usuario[-1])
-        if fila < 0 or fila >= board.n or col <0 or col>= n:
+        if fila < 0 or fila >= board.n or columna <0 or columna>= n:
             print("Ingrese una posición válida. ")
             continue
 
