@@ -5,9 +5,8 @@ class Board:
     def __init__(self, n, num_bombas):
         self.n=n
         self.num_bombas=num_bombas
-
         self.board=self.crear_board()
-        self.asignar_valores_a_la_matriz() #revisar aqui
+        self.asignar_valores_a_la_matriz() 
         self.cavado=set()
 
     def crear_board(self):
@@ -35,7 +34,6 @@ class Board:
                     continue
                 self.board[f][c] = self.asignar_numero_de_bombas_cercanas(f,c)
     
-    
     def asignar_numero_de_bombas_cercanas(self, fila, columna):
         numero_de_bombas_cercanas = 0
         for f in range(max(0,fila-1),min(self.n,(fila+1)+1)):
@@ -57,7 +55,8 @@ class Board:
             for c in range(max(0,columna-1),min(self.n,(columna+1)+1)):
                 if (f,c) in self.cavado:
                     continue 
-                return self.cavar(f,c)
+                self.cavar(f,c)
+        return True
     
     def __str__(self):
         tablero_visible = [[None for _ in range(self.n)] for _ in range(self.n)]
@@ -88,6 +87,7 @@ def play(n=10, num_bombas=10):
 
     if safe: 
         print("¡Felicitaciones! Has ganado.")
+        print(board)
     else:
         print("Perdiste, vuelve a intentarlo.")
         board.cavado=[(fila, columna) for fila in range (board.n) for columna in range(board.n)]

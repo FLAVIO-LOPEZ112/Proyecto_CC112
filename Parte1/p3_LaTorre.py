@@ -23,3 +23,9 @@ columnas=int(input("|> Número de columnas: "))
 m=[]
 
 matriz(filas,columnas, m)
+
+"""
+Las listas en Python son dinámicas, por lo que no es necesario declarar su tamaño inicial ni reservar memoria manualmente como en c++. 
+El uso de los bucles for tambien es más automatico(tiene una sintaxis mas sencilla) que en c++, ademas el uso de input() hace que la
+iteraccion del usuario sea más sencilla de implementar.
+"""
