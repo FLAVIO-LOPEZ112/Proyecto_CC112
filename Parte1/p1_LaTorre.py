@@ -13,3 +13,8 @@ def Fibonacci(n):
 n = int(input("| Buscaremos el n-ésimo término de la sucesión de Fibonacci\n| ¿Qué valor desea hallar?: "))
 
 print("| El número en la posición",n,"es: ",Fibonacci(n-1))
+
+"""
+En este ejercicio se resalta las diferencias especialmente en cuanto a la claridad y concisión de la sintaxis, la facilidad de manejo de funciones recursivas 
+y la interacción con el usuario.
+"""
