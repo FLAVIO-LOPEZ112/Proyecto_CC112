@@ -7,7 +7,7 @@ class Board:
 
         self.board=self.crear_board()
         self.colocar_valores()
-        self.dug=set()
+        self.cavado=set()
 
     def crear_board(self):
 
@@ -47,7 +47,27 @@ class Board:
                     numero_de_bombas_cercanas += 1
 
         return numero_de_bombas_cercanas
-
-
+    
+    def cavar(self, fila, columna):
+        self.cavado.add(fila,columna)
+        if self.board[fila][columna] == "*":
+            return False
+        if self.board[fila][columna] > 0:
+            return True 
+        for f in range(max(0,fila-1),min(self.n,(fila+1)+1)):
+            for c in range(max(0,columna-1),min(self.n,(columna+1)+1)):
+                if (f,c) in self.dug:
+                    continue 
+                return self.cavar(f,c)
+    
+    def __str__(self, fila, columna):
+        tablero_visible = [[None for _ in range(self.n)] for _ in range(self.n)]
+        for f in range(self.n):
+            for c in range(self.n):
+                if (f, c) in self.cavado:
+                    tablero_visible[f][c] = str(self.board[f][c])
+                else:
+                    tablero_visible[f][c] = " "
+        
 def play(n=10, num_bombas=10):
     pass
