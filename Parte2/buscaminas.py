@@ -66,8 +66,37 @@ class Board:
                     tablero_visible[f][c] = str(self.board[f][c])
                 else:
                     tablero_visible[f][c] = " "
-        tablero_str = "\n".join([" ".join(row) for row in tablero_visible])
-        return tablero_str
+        string_rep= ''
+        m = []
+
+        for i in range(self.n):
+            columnas = map(lambda x: x[i], tablero_visible)
+            m.append(len(max(columnas, key=len)))
+
+        num_col= [ i for i in range(self.n)]
+        num_fil= '   '
+        celdas= []
+
+        for i, col in enumerate(num_col):
+            format = '%-' + str(m[i]) + "s"
+            celdas.append(format % (col))
+        num_fil += '  '.join(celdas)
+        num_fil+= '  \n'
+
+        for i in range(len(tablero_visible)):
+            f= tablero_visible[i]
+            string_rep += f'{i} |'
+            celdas = []
+            for i, col in enumerate(f):
+                format = '%-' + str(m[i]) + "s"
+                celdas.append(format % (col))
+            string_rep += ' |'.join(celdas)
+            string_rep += ' |\n'
+
+        tam = int(len(string_rep)/ self.n)
+        string_rep= num_fil + '-' *tam + '\n' + string_rep + '-'*tam
+
+        return string_rep
         
 def play(n=10, num_bombas=10):
     board= Board(n, num_bombas)
