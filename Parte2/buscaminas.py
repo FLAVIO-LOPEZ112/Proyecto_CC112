@@ -18,7 +18,7 @@ class Board:
         while bombas_colocadas < self.num_bombas:
             ubicacion = random. randint(0, self.n**2 - 1)
             fila=ubicacion//self.n
-            columna=ubicacion% self.n
+            columna=ubicacion%self.n
 
             if board[fila][columna]=='*':
                 continue
@@ -42,24 +42,24 @@ class Board:
             for c in range(max(0,columna-1),min(self.n,(columna+1)+1)):
                 if f == fila and c== columna:
                     continue
-                elif self.board[f][c] == "*":
+                if self.board[f][c] == "*":
                     numero_de_bombas_cercanas += 1
 
         return numero_de_bombas_cercanas
     
     def cavar(self, fila, columna):
-        self.cavado.add(fila,columna)
+        self.cavado.add((fila,columna))
         if self.board[fila][columna] == "*":
             return False
         if self.board[fila][columna] > 0:
             return True 
         for f in range(max(0,fila-1),min(self.n,(fila+1)+1)):
             for c in range(max(0,columna-1),min(self.n,(columna+1)+1)):
-                if (f,c) in self.dug:
+                if (f,c) in self.cavado:
                     continue 
                 return self.cavar(f,c)
     
-    def __str__(self, fila, columna):
+    def __str__(self):
         tablero_visible = [[None for _ in range(self.n)] for _ in range(self.n)]
         for f in range(self.n):
             for c in range(self.n):
@@ -67,8 +67,10 @@ class Board:
                     tablero_visible[f][c] = str(self.board[f][c])
                 else:
                     tablero_visible[f][c] = " "
+        tablero_str = "\n".join([" ".join(row) for row in tablero_visible])
+        return tablero_str
         
-def play(n, num_bombas):
+def play(n=10, num_bombas=10):
     board= Board(n, num_bombas)
 
     safe= True
@@ -88,12 +90,10 @@ def play(n, num_bombas):
         print("¡Felicitaciones! Has ganado.")
     else:
         print("Perdiste, vuelve a intentarlo.")
-        board.cavar=[(fila, columna) for fila in range (board.n) for columna in range(board.n)]
+        board.cavado=[(fila, columna) for fila in range (board.n) for columna in range(board.n)]
         print(board)
 
-n=10
-num_bombas=10
-
-play(n, num_bombas)
+if __name__ == "__main__":
+    play()
 
 
