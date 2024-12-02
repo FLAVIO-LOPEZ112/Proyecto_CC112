@@ -13,3 +13,8 @@ class Persona:
 
 persona1 = Persona("Julio", 25)
 persona1.MostrarDatos()
+
+"""
+Python destaca en la creaccion rapida de clases, sin la necesidad el uso de constructores ni destructores explicitos. Pero a pesar de
+que en C++ se tendria que escribir el codigo de una forma más explicita, esto ofrece un mayor control y presción.  
+"""
