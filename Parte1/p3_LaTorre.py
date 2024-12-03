@@ -10,11 +10,10 @@ def matriz(filas, columnas,m):
       f.append(a)
     m.append(f)
 
-  j=0
   print("\n| Matriz generada: \n")
   for i in range(filas):
-      print(f"{m[j]}")
-      j=j+1
+      print(f"{m[i]}")
+      
 
 print("Generemos una matriz\n")
 filas=int(input("|> Número de filas: "))
